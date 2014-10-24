@@ -1,0 +1,1235 @@
+
+starting timer
+
+creating thread  Idler 
+
+creating thread IntCatcher
+
+creating thread Incrementer#1
+
+creating thread Incrementer#2
+
+creating thread Incrementer#3
+
+Starting thread 
+Starting thread Incrementer#2
+Starting thread Incrementer#1 pt=139656940521216
+
+Starting thread IntCatcher
+Starting thread 
+Ln 469 of  Idler  pt= pt=139656951011072
+   start by Incrementer#1/1/0/none: waiting for my first CPU ...
+139656961500928 Incrementer#3
+Ln 469    pt=139656930031360 pt= of    start139656919541504
+Ln 
+
+471 of      
+        start
+Ln 469 of  by  by   
+Ln    IntCatcher/1/0/none: start469waiting for my first CPU ...
+Incrementer#1/0/0/none: 
+Ln 469 of 
+Ln 186 of  suspend by IntCatcher/0/1/IntCatcher:    got my first CPU
+ by  Idler /0/0/none: startSuspending thread 
+ of 
+Ln 579waiting for my first CPU ...
+ by Incrementer#3/0/0/none:    startwaiting for my first CPU ...
+
+Ln  of      action  by      186
+Ln 186Incrementer#2/0/0/none: waiting for my first CPU ...
+ of        by suspend  of   Incrementer#1/0/1/IntCatcher: New incrementer running.
+suspend by  Idler /0/2/ Idler : Suspending thread 
+ 
+Ln  by Incrementer#3/0/3/ Idler : Suspending thread 
+186 of  suspend by Incrementer#2/0/4/ Idler : Suspending thread 
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 1
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 2
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 3
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 4
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 5
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 6
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 7
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 8
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 9
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 10
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 11
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 12
+
+Ln 451 of  handler by Incrementer#1/0/4/ Idler : TICK 0
+
+Ln 266 of     tick by Incrementer#1/0/4/ Idler : now=0 alarm=2147483647 sleepers=0
+
+Ln 454 of  handler by Incrementer#1/0/4/ Idler : DEFERRING 
+
+Ln 192 of   resume by Incrementer#1/1/4/IntCatcher: Resuming 
+
+Ln 186 of  suspend by     
+Ln 188 of  suspend by Incrementer#1/1/4/IntCatcher: Suspending thread 
+ Idler /1/4/IntCatcher: Unsuspended thread 
+
+Ln 471 of    start by  Idler /0/4/IntCatcher: got my first CPU
+
+Ln 281 of   action by  Idler /0/4/IntCatcher: Idler running
+
+Ln 284 of   action by  Idler /0/4/IntCatcher: calling wakeme_at
+
+Ln 255 of wakeme_at by  Idler /0/4/IntCatcher:  ->wakeup wait 
+
+Ln 481 of     wait by  Idler /0/4/IntCatcher: releasing CPU just prior to wait.
+
+Ln 192 of   resume by  Idler /1/3/Incrementer#3: Resuming 
+
+Ln 484 of     wait by  Idler /1/3/Incrementer#3: WAITING
+
+Ln 186 of  suspend by  Idler /1/3/Incrementer#3: Suspending thread 
+
+Ln 188 of  suspend by IntCatcher/1/3/Incrementer#3: Unsuspended thread 
+
+Ln 471 of    start by IntCatcher/0/3/Incrementer#3: got my first CPU
+
+Ln 498 of   action by IntCatcher/0/3/Incrementer#3: now running
+
+Ln 192 of   resume by IntCatcher/1/2/Incrementer#2: Resuming 
+
+Ln 188 of  suspend by Incrementer#3/1/2/Incrementer#2: Unsuspended thread 
+
+Ln 471 of    start by Incrementer#3/0/2/Incrementer#2: got my first CPU
+
+Ln 579 of   action by Incrementer#3/0/2/Incrementer#2: New incrementer running.
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 13
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 14
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 15
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 16
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 17
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 18
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 19
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 20
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 21
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 22
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 23
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 24
+
+Ln 451 of  handler by Incrementer#3/0/2/Incrementer#2: TICK 1
+
+Ln 266 of     tick by Incrementer#3/0/2/Incrementer#2: now=1 alarm=5 sleepers=1
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 25
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 26
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 27
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 28
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 29
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 30
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 31
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 32
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 33
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 34
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 35
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 36
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 37
+
+Ln 451 of  handler by Incrementer#3/0/2/Incrementer#2: TICK 2
+
+Ln 266 of     tick by Incrementer#3/0/2/Incrementer#2: now=2 alarm=5 sleepers=1
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 38
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 39
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 40
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 41
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 42
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 43
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 44
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 45
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 46
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 47
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 48
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 49
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 50
+
+Ln 451 of  handler by Incrementer#3/0/2/Incrementer#2: TICK 3
+
+Ln 266 of     tick by Incrementer#3/0/2/Incrementer#2: now=3 alarm=5 sleepers=1
+
+Ln 454 of  handler by Incrementer#3/0/2/Incrementer#2: DEFERRING 
+
+Ln 192 of   resume by Incrementer#3/1/2/Incrementer#1: Resuming 
+
+Ln 186 of  suspend by Incrementer#3/1/2/Incrementer#1: Suspending thread 
+
+Ln 188 of  suspend by Incrementer#2/1/2/Incrementer#1: Unsuspended thread 
+
+Ln 471 of    start by Incrementer#2/0/2/Incrementer#1: got my first CPU
+
+Ln 579 of   action by Incrementer#2/0/2/Incrementer#1: New incrementer running.
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 51
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 52
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 53
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 54
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 55
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 56
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 57
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 58
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 59
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 60
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 61
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 62
+
+Ln 451 of  handler by IntCatcher/0/2/Incrementer#1: TICK 4
+
+Ln 266 of     tick by IntCatcher/0/2/Incrementer#1: now=4 alarm=5 sleepers=1
+
+Ln 502 of   action by IntCatcher/0/2/Incrementer#1:  requesting CPU.
+
+Ln 186 of  suspend by IntCatcher/0/3/IntCatcher: Suspending thread 
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 63
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 64
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 65
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 66
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 67
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 68
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 69
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 70
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 71
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 72
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 73
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 74
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 75
+
+Ln 451 of  handler by Incrementer#2/0/3/IntCatcher: TICK 5
+
+Ln 266 of     tick by Incrementer#2/0/3/IntCatcher: now=5 alarm=5 sleepers=1
+
+Ln 229 of   signal by Incrementer#2/0/3/IntCatcher: Signalling
+
+Ln 192 of   resume by Incrementer#2/0/3/IntCatcher: Resuming 
+
+Ln 188 of  suspend by  Idler /0/3/IntCatcher: Unsuspended thread 
+
+Ln 186 of  suspend by  Idler /0/4/ Idler : Suspending thread 
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 76
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 77
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 78
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 79
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 80
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 81
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 82
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 83
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 84
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 85
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 86
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 87
+
+Ln 583 of   action by Incrementer#2/0/4/ Idler :  Counter : 88
+
+Ln 451 of  handler by Incrementer#2/0/4/ Idler : TICK 6
+
+Ln 266 of     tick by Incrementer#2/0/4/ Idler : now=6 alarm=5 sleepers=0
+
+Ln 454 of  handler by Incrementer#2/0/4/ Idler : DEFERRING 
+
+Ln 192 of   resume by Incrementer#2/1/4/IntCatcher: Resuming 
+
+Ln 186 of  suspend by Incrementer#2/1/4/IntCatcher: Suspending thread 
+
+Ln 188 of  suspend by  Idler /1/4/IntCatcher: Unsuspended thread 
+
+Ln 257 of wakeme_at by  Idler /0/4/IntCatcher:  wakeup-> 
+
+Ln 284 of   action by  Idler /0/4/IntCatcher: calling wakeme_at
+
+Ln 255 of wakeme_at by  Idler /0/4/IntCatcher:  ->wakeup wait 
+
+Ln 481 of     wait by  Idler /0/4/IntCatcher: releasing CPU just prior to wait.
+
+Ln 192 of   resume by  Idler /1/3/Incrementer#1: Resuming 
+
+Ln 484 of     wait by  Idler /1/3/Incrementer#1: WAITING
+
+Ln 186 of  suspend by  Idler /1/3/Incrementer#1: Suspending thread 
+
+Ln 188 of  suspend by IntCatcher/1/3/Incrementer#1: Unsuspended thread 
+
+Ln 192 of   resume by IntCatcher/1/2/Incrementer#3: Resuming 
+
+Ln 188 of  suspend by Incrementer#1/1/2/Incrementer#3: Unsuspended thread 
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 89
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 90
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 91
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 92
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 93
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 94
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 95
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 96
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 97
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 98
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 99
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 100
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 101
+
+Ln 451 of  handler by IntCatcher/0/2/Incrementer#3: TICK 7
+
+Ln 266 of     tick by IntCatcher/0/2/Incrementer#3: now=7 alarm=10 sleepers=1
+
+Ln 502 of   action by IntCatcher/0/2/Incrementer#3:  requesting CPU.
+
+Ln 186 of  suspend by IntCatcher/0/3/IntCatcher: Suspending thread 
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 102
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 103
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 104
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 105
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 106
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 107
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 108
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 109
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 110
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 111
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 112
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 113
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 114
+
+Ln 451 of  handler by Incrementer#1/0/3/IntCatcher: TICK 8
+
+Ln 266 of     tick by Incrementer#1/0/3/IntCatcher: now=8 alarm=10 sleepers=1
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 115
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 116
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 117
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 118
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 119
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 120
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 121
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 122
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 123
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 124
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 125
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 126
+
+Ln 451 of  handler by Incrementer#1/0/3/IntCatcher: TICK 9
+
+Ln 266 of     tick by Incrementer#1/0/3/IntCatcher: now=9 alarm=10 sleepers=1
+
+Ln 454 of  handler by Incrementer#1/0/3/IntCatcher: DEFERRING 
+
+Ln 192 of   resume by Incrementer#1/1/3/Incrementer#3: Resuming 
+
+Ln 186 of  suspend by Incrementer#1/1/3/Incrementer#3: Suspending thread 
+
+Ln 188 of  suspend by IntCatcher/1/3/Incrementer#3: Unsuspended thread 
+
+Ln 192 of   resume by IntCatcher/1/2/Incrementer#2: Resuming 
+
+Ln 188 of  suspend by Incrementer#3/1/2/Incrementer#2: Unsuspended thread 
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 127
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 128
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 129
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 130
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 131
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 132
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 133
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 134
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 135
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 136
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 137
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 138
+
+Ln 451 of  handler by Incrementer#3/0/2/Incrementer#2: TICK 10
+
+Ln 266 of     tick by Incrementer#3/0/2/Incrementer#2: now=10 alarm=10 sleepers=1
+
+Ln 229 of   signal by Incrementer#3/0/2/Incrementer#2: Signalling
+
+Ln 192 of   resume by Incrementer#3/0/2/Incrementer#2: Resuming 
+
+Ln 188 of  suspend by  Idler /0/2/Incrementer#2: Unsuspended thread 
+
+Ln 186 of  suspend by  Idler /0/3/ Idler : Suspending thread 
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 139
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 140
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 141
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 142
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 143
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 144
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 145
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 146
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 147
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 148
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 149
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 150
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 151
+
+Ln 451 of  handler by Incrementer#3/0/3/ Idler : TICK 11
+
+Ln 266 of     tick by Incrementer#3/0/3/ Idler : now=11 alarm=10 sleepers=0
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 152
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 153
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 154
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 155
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 156
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 157
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 158
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 159
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 160
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 161
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 162
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 163
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 164
+
+Ln 451 of  handler by Incrementer#3/0/3/ Idler : TICK 12
+
+Ln 266 of     tick by Incrementer#3/0/3/ Idler : now=12 alarm=10 sleepers=0
+
+Ln 454 of  handler by Incrementer#3/0/3/ Idler : DEFERRING 
+
+Ln 192 of   resume by Incrementer#3/1/3/Incrementer#2: Resuming 
+
+Ln 186 of  suspend by Incrementer#3/1/3/Incrementer#2: Suspending thread 
+
+Ln 188 of  suspend by  Idler /1/3/Incrementer#2: Unsuspended thread 
+
+Ln 257 of wakeme_at by  Idler /0/3/Incrementer#2:  wakeup-> 
+
+Ln 284 of   action by  Idler /0/3/Incrementer#2: calling wakeme_at
+
+Ln 255 of wakeme_at by  Idler /0/3/Incrementer#2:  ->wakeup wait 
+
+Ln 481 of     wait by  Idler /0/3/Incrementer#2: releasing CPU just prior to wait.
+
+Ln 192 of   resume by  Idler /1/2/Incrementer#1: Resuming 
+
+Ln 484 of     wait by  Idler /1/2/Incrementer#1: WAITING
+
+Ln 186 of  suspend by  Idler /1/2/Incrementer#1: Suspending thread 
+
+Ln 188 of  suspend by Incrementer#2/1/2/Incrementer#1: Unsuspended thread 
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 165
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 166
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 167
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 168
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 169
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 170
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 171
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 172
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 173
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 174
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 175
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 176
+
+Ln 451 of  handler by IntCatcher/0/2/Incrementer#1: TICK 13
+
+Ln 266 of     tick by IntCatcher/0/2/Incrementer#1: now=13 alarm=15 sleepers=1
+
+Ln 502 of   action by IntCatcher/0/2/Incrementer#1:  requesting CPU.
+
+Ln 186 of  suspend by IntCatcher/0/3/IntCatcher: Suspending thread 
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 177
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 178
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 179
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 180
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 181
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 182
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 183
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 184
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 185
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 186
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 187
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 188
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 189
+
+Ln 451 of  handler by Incrementer#2/0/3/IntCatcher: TICK 14
+
+Ln 266 of     tick by Incrementer#2/0/3/IntCatcher: now=14 alarm=15 sleepers=1
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 190
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 191
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 192
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 193
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 194
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 195
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 196
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 197
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 198
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 199
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 200
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 201
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 202
+
+Ln 451 of  handler by Incrementer#2/0/3/IntCatcher: TICK 15
+
+Ln 266 of     tick by Incrementer#2/0/3/IntCatcher: now=15 alarm=15 sleepers=1
+
+Ln 229 of   signal by Incrementer#2/0/3/IntCatcher: Signalling
+
+Ln 192 of   resume by Incrementer#2/0/3/IntCatcher: Resuming 
+
+Ln 454 of  handler by Incrementer#2/0/3/IntCatcher: DEFERRING 
+
+Ln 192 of   resume by Incrementer#2/1/3/Incrementer#1: Resuming 
+
+Ln 186 of  suspend by Incrementer#2/1/3/Incrementer#1: Suspending thread 
+
+Ln 188 of  suspend by  Idler /1/3/Incrementer#1: Unsuspended thread 
+
+Ln 188
+Ln 257 of wakeme_at by  Idler /0/3/Incrementer#1:  wakeup-> 
+ of  suspend by IntCatcher/1/3/Incrementer#1: Unsuspended thread 
+
+Ln 284 of   action    
+Ln 186 by  Idler /0/3/Incrementer#1: calling wakeme_at
+ of  suspend by IntCatcher/0/4/IntCatcher: Suspending thread 
+    
+Ln 255 of wakeme_at by  Idler /0/4/IntCatcher:  ->wakeup wait 
+
+Ln 481 of     wait by  Idler /0/4/IntCatcher: releasing CPU just prior to wait.
+
+Ln 192 of   resume by  Idler /1/3/Incrementer#1: Resuming 
+
+Ln 484 of     wait by  Idler /1/3/Incrementer#1: WAITING
+    
+Ln 188 of 
+Ln 186 of  suspend by  Idler /1/3/Incrementer#1: Suspending thread 
+ suspend by IntCatcher/1/3/Incrementer#1: Unsuspended thread 
+
+Ln 192 of   resume by IntCatcher/1/2/Incrementer#3: Resuming 
+
+Ln 188 of  suspend by Incrementer#1/1/2/Incrementer#3: Unsuspended thread 
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 203
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 204
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 205
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 206
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 207
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 208
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 209
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 210
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 211
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 212
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 213
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 214
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 215
+
+Ln 451 of  handler by IntCatcher/0/2/Incrementer#3: TICK 16
+
+Ln 266 of     tick by IntCatcher/0/2/Incrementer#3: now=16 alarm=20 sleepers=1
+
+Ln 502 of   action by IntCatcher/0/2/Incrementer#3:  requesting CPU.
+
+Ln 186 of  suspend by IntCatcher/0/3/IntCatcher: Suspending thread 
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 216
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 217
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 218
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 219
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 220
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 221
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 222
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 223
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 224
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 225
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 226
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 227
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 228
+
+Ln 451 of  handler by Incrementer#1/0/3/IntCatcher: TICK 17
+
+Ln 266 of     tick by Incrementer#1/0/3/IntCatcher: now=17 alarm=20 sleepers=1
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 229
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 230
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 231
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 232
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 233
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 234
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 235
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 236
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 237
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 238
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 239
+
+Ln 583 of   action by Incrementer#1/0/3/IntCatcher:  Counter : 240
+
+Ln 451 of  handler by Incrementer#1/0/3/IntCatcher: TICK 18
+
+Ln 266 of     tick by Incrementer#1/0/3/IntCatcher: now=18 alarm=20 sleepers=1
+
+Ln 454 of  handler by Incrementer#1/0/3/IntCatcher: DEFERRING 
+
+Ln 192 of   resume by Incrementer#1/1/3/Incrementer#3: Resuming 
+
+Ln 186 of  suspend by Incrementer#1/1/3/Incrementer#3: Suspending thread 
+
+Ln 188 of  suspend by IntCatcher/1/3/Incrementer#3: Unsuspended thread 
+
+Ln 192 of   resume by IntCatcher/1/2/Incrementer#2: Resuming 
+
+Ln 188 of  suspend by Incrementer#3/1/2/Incrementer#2: Unsuspended thread 
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 241
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 242
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 243
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 244
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 245
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 246
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 247
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 248
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 249
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 250
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 251
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 252
+
+Ln 451 of  handler by Incrementer#3/0/2/Incrementer#2: TICK 19
+
+Ln 266 of     tick by Incrementer#3/0/2/Incrementer#2: now=19 alarm=20 sleepers=1
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 253
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 254
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 255
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 256
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 257
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 258
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 259
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 260
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 261
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 262
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 263
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 264
+
+Ln 583 of   action by Incrementer#3/0/2/Incrementer#2:  Counter : 265
+
+Ln 451 of  handler by Incrementer#3/0/2/Incrementer#2: TICK 20
+
+Ln 266 of     tick by Incrementer#3/0/2/Incrementer#2: now=20 alarm=20 sleepers=1
+
+Ln 229 of   signal by Incrementer#3/0/2/Incrementer#2: Signalling
+
+Ln 192 of   resume by Incrementer#3/0/2/Incrementer#2: Resuming 
+
+Ln 188 of  suspend by  Idler /0/2/Incrementer#2: Unsuspended thread 
+
+Ln 186 of  suspend by  Idler /0/3/ Idler : Suspending thread 
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 266
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 267
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 268
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 269
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 270
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 271
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 272
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 273
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 274
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 275
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 276
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 277
+
+Ln 583 of   action by Incrementer#3/0/3/ Idler :  Counter : 278
+
+Ln 451 of  handler by Incrementer#3/0/3/ Idler : TICK 21
+
+Ln 266 of     tick by Incrementer#3/0/3/ Idler : now=21 alarm=20 sleepers=0
+
+Ln 454 of  handler by Incrementer#3/0/3/ Idler : DEFERRING 
+
+Ln 192 of   resume by Incrementer#3/1/3/Incrementer#2: Resuming 
+
+Ln 186 of  suspend by Incrementer#3/1/3/Incrementer#2: Suspending thread 
+
+Ln 188 of  suspend by  Idler /1/3/Incrementer#2: Unsuspended thread 
+
+Ln 257 of wakeme_at by  Idler /0/3/Incrementer#2:  wakeup-> 
+
+Ln 284 of   action by  Idler /0/3/Incrementer#2: calling wakeme_at
+
+Ln 255 of wakeme_at by  Idler /0/3/Incrementer#2:  ->wakeup wait 
+
+Ln 481 of     wait by  Idler /0/3/Incrementer#2: releasing CPU just prior to wait.
+
+Ln 192 of   resume by  Idler /1/2/Incrementer#1: Resuming 
+
+Ln 484 of     wait by  Idler /1/2/Incrementer#1: WAITING
+
+Ln 186 of  suspend by  Idler /1/2/Incrementer#1: Suspending thread 
+
+Ln 188 of  suspend by Incrementer#2/1/2/Incrementer#1: Unsuspended thread 
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 279
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 280
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 281
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 282
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 283
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 284
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 285
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 286
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 287
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 288
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 289
+
+Ln 583 of   action by Incrementer#2/0/2/Incrementer#1:  Counter : 290
+
+Ln 451 of  handler by IntCatcher/0/2/Incrementer#1: TICK 22
+
+Ln 266 of     tick by IntCatcher/0/2/Incrementer#1: now=22 alarm=25 sleepers=1
+
+Ln 502 of   action by IntCatcher/0/2/Incrementer#1:  requesting CPU.
+
+Ln 186 of  suspend by IntCatcher/0/3/IntCatcher: Suspending thread 
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 291
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 292
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 293
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 294
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 295
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 296
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 297
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 298
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 299
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 300
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 301
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 302
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 303
+
+Ln 451 of  handler by Incrementer#2/0/3/IntCatcher: TICK 23
+
+Ln 266 of     tick by Incrementer#2/0/3/IntCatcher: now=23 alarm=25 sleepers=1
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 304
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 305
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 306
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 307
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 308
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 309
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 310
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 311
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 312
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 313
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 314
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 315
+
+Ln 583 of   action by Incrementer#2/0/3/IntCatcher:  Counter : 316
+
+Ln 451 of  handler by Incrementer#2/0/3/IntCatcher: TICK 24
+
+Ln 266 of     tick by Incrementer#2/0/3/IntCatcher: now=24 alarm=25 sleepers=1
+
+Ln 454 of  handler by Incrementer#2/0/3/IntCatcher: DEFERRING 
+
+Ln 192 of   resume by Incrementer#2/1/3/Incrementer#1: Resuming 
+
+Ln 186 of  suspend by Incrementer#2/1/3/Incrementer#1: Suspending thread 
+
+Ln 188 of  suspend by IntCatcher/1/3/Incrementer#1: Unsuspended thread 
+
+Ln 192 of   resume by IntCatcher/1/2/Incrementer#3: Resuming 
+
+Ln 188 of  suspend by Incrementer#1/1/2/Incrementer#3: Unsuspended thread 
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 317
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 318
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 319
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 320
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 321
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 322
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 323
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 324
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 325
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 326
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 327
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 328
+
+Ln 583 of   action by Incrementer#1/0/2/Incrementer#3:  Counter : 329
+
+Ln 451 of  handler by IntCatcher/0/2/Incrementer#3: TICK 25
+
+Ln 266 of     tick by IntCatcher/0/2/Incrementer#3: now=25 alarm=25 sleepers=1
+
+Ln 229 of   signal by IntCatcher/0/2/Incrementer#3: Signalling
+
+Ln 192 of   resume by IntCatcher/0/2/Incrementer#3: Resuming 
+
+Ln 502 of   action by IntCatcher/0/2/Incrementer#3:  requesting CPU.
+
+Ln 186 of  suspend by IntCatcher/0/3/IntCatcher: Suspending thread 
+
+Ln 188 of  suspend by  Idler /0/3/IntCatcher: Unsuspended thread 
+
+Ln 186 of  suspend by  Idler /0/4/ Idler : Suspending thread 
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 330
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 331
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 332
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 333
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 334
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 335
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 336
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 337
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 338
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 339
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 340
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 341
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 342
+
+Ln 451 of  handler by Incrementer#1/0/4/ Idler : TICK 26
+
+Ln 266 of     tick by Incrementer#1/0/4/ Idler : now=26 alarm=25 sleepers=0
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 343
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 344
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 345
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 346
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 347
+
+Ln 583 of   action by Incrementer#1/0/4/ Idler :  Counter : 348
+
+Ln 585 of   action by Incrementer#1/0/4/ Idler : Incrementer#1 done
+
+Ln 473 of    start by Incrementer#1/0/4/ Idler : exiting and releasing cpu.
+
+Ln 192 of   resume by Incrementer#1/1/3/IntCatcher: Resuming 
+
+Ln 188 of  suspend by  Idler /1/3/IntCatcher: Unsuspended thread 
+
+Ln 257 of wakeme_at by  Idler /0/3/IntCatcher:  wakeup-> 
+
+Ln 284 of   action by  Idler /0/3/IntCatcher: calling wakeme_at
+
+Ln 255 of wakeme_at by  Idler /0/3/IntCatcher:  ->wakeup wait 
+
+Ln 481 of     wait by  Idler /0/3/IntCatcher: releasing CPU just prior to wait.
+
+Ln 192 of   resume by  Idler /1/2/Incrementer#3: Resuming 
+
+Ln 484 of     wait by  Idler /1/2/Incrementer#3: WAITING
+
+Ln 186 of  suspend by  Idler /1/2/Incrementer#3: Suspending thread 
+
+Ln 188 of  suspend by IntCatcher/1/2/Incrementer#3: Unsuspended thread 
+
+Ln 192 of   resume by IntCatcher/1/1/Incrementer#2: Resuming 
+
+Ln 188 of  suspend by Incrementer#3/1/1/Incrementer#2: Unsuspended thread 
+
+Ln 583 of   action by Incrementer#3/0/1/Incrementer#2:  Counter : 349
+
+Ln 583 of   action by Incrementer#3/0/1/Incrementer#2:  Counter : 350
+
+Ln 583 of   action by Incrementer#3/0/1/Incrementer#2:  Counter : 351
+
+Ln 583 of   action by Incrementer#3/0/1/Incrementer#2:  Counter : 352
+
+Ln 583 of   action by Incrementer#3/0/1/Incrementer#2:  Counter : 353
+
+Ln 583 of   action by Incrementer#3/0/1/Incrementer#2:  Counter : 354
+
+Ln 585 of   action by Incrementer#3/0/1/Incrementer#2: Incrementer#3 done
+
+Ln 473 of    start by Incrementer#3/0/1/Incrementer#2: exiting and releasing cpu.
+
+Ln 192 of   resume by Incrementer#3/1/0/none: Resuming 
+
+Ln 188 of  suspend by Incrementer#2/1/0/none: Unsuspended thread 
+
+Ln 451 of  handler by Incrementer#2/0/0/none: TICK 27
+
+Ln 266 of     tick by Incrementer#2/0/0/none: now=27 alarm=30 sleepers=1
+
+Ln 454 of  handler by Incrementer#2/0/0/none: DEFERRING 
+
+Ln 583 of   action by Incrementer#2/0/0/none:  Counter : 355
+
+Ln 583 of   action by Incrementer#2/0/0/none:  Counter : 356
+
+Ln 583 of   action by Incrementer#2/0/0/none:  Counter : 357
+
+Ln 583 of   action by Incrementer#2/0/0/none:  Counter : 358
+
+Ln 583 of   action by Incrementer#2/0/0/none:  Counter : 359
+
+Ln 583 of   action by Incrementer#2/0/0/none:  Counter : 360
+
+Ln 585 of   action by Incrementer#2/0/0/none: Incrementer#2 done
+
+Ln 473 of    start by Incrementer#2/0/0/none: exiting and releasing cpu.
+
+Ln 451 of  handler by IntCatcher/1/0/none: TICK 28
+
+Ln 266 of     tick by IntCatcher/1/0/none: now=28 alarm=30 sleepers=1
+
+Ln 502 of   action by IntCatcher/1/0/none:  requesting CPU.
+
+Ln 451 of  handler by IntCatcher/1/0/none: TICK 29
+
+Ln 266 of     tick by IntCatcher/1/0/none: now=29 alarm=30 sleepers=1
+
+Ln 502 of   action by IntCatcher/1/0/none:  requesting CPU.
+
+Ln 451 of  handler by IntCatcher/1/0/none: TICK 30
+
+Ln 266 of     tick by IntCatcher/1/0/none: now=30 alarm=30 sleepers=1
+
+Ln 229 of   signal by IntCatcher/1/0/none: Signalling
+
+Ln 192 of   resume by IntCatcher/1/0/none: Resuming 
+
+Ln 454 of  handler by IntCatcher/1/0/none: DEFERRING 
+
+Ln 502 of   action by IntCatcher/1/0/none:  requesting CPU.
+
+Ln 188 of  suspend by  Idler /1/0/none: Unsuspended thread 
+
+Ln 257 of wakeme_at by  Idler /0/0/none:  wakeup-> 
+
+Ln 284 of   action by  Idler /0/0/none: calling wakeme_at
+
+Ln 255 of wakeme_at by  Idler /0/0/none:  ->wakeup wait 
+
+Ln 481 of     wait by  Idler /0/0/none: releasing CPU just prior to wait.
+
+Ln 484 of     wait by  Idler /1/0/none: WAITING
+
+Ln 186 of  suspend by  Idler /1/0/none: Suspending thread 
+
+Ln 451 of  handler by IntCatcher/1/0/none: TICK 31
+
+Ln 266 of     tick by IntCatcher/1/0/none: now=31 alarm=35 sleepers=1
+
+Ln 502 of   action by IntCatcher/1/0/none:  requesting CPU.
+
+Ln 451 of  handler by IntCatcher/1/0/none: TICK 32
+
+Ln 266 of     tick by IntCatcher/1/0/none: now=32 alarm=35 sleepers=1
+
+Ln 502 of   action by IntCatcher/1/0/none:  requesting CPU.
+
+Ln 451 of  handler by IntCatcher/1/0/none: TICK 33
+
+Ln 266 of     tick by IntCatcher/1/0/none: now=33 alarm=35 sleepers=1
+
+Ln 454 of  handler by IntCatcher/1/0/none: DEFERRING 
+
+Ln 502 of   action by IntCatcher/1/0/none:  requesting CPU.
+
+Ln 451 of  handler by IntCatcher/1/0/none: TICK 34
+
+Ln 266 of     tick by IntCatcher/1/0/none: now=34 alarm=35 sleepers=1
+a.out: oldmain.cc:457: static void InterruptSystem::handler(int): Assertion `tickcount < 35' failed.
