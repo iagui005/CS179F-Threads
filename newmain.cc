@@ -216,7 +216,7 @@ class Thread {
     go.release(); 
   }
 
-  int self() { return pthread_self(); }
+  pthread_t self() { return pthread_self(); }
 
   void join() { assert( pthread_join(pt, NULL) ); }
 

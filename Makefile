@@ -18,7 +18,7 @@ all:newmain
 
 ##Main
 newmain: $(MAIN_REQS)
-	$(CC) $(MAIN_TARGETS)  -o $(MAIN_OUT)
+	$(CC) $(MAIN_TARGETS) $(LIBS) -o $(MAIN_OUT)
 newmain.o: newmain.cc
 	$(CC) $(LIBS) newmain.cc
 

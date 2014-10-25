@@ -12,6 +12,7 @@
 #include <sys/time.h>
 #include <errno.h>
 #include <climits>
+#include <unistd.h>
 
 using namespace std;
 
