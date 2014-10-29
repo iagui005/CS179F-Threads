@@ -1,5 +1,5 @@
 ## CS 179F Fall 2014: Senior Design
-LIBS = -std=c++0x -pthread
+LIBS = -std=c++0x -Werror -pthread
 CC = g++
 
 ##Global Header Files

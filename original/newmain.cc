@@ -1,4 +1,3 @@
-#include <thread>
 #include <pthread.h>
 #include <semaphore.h>
 #include <cassert>
@@ -21,8 +20,7 @@ using namespace std;
 template< typename T >
 inline string T2a( T x ) { ostringstream s; s<<x; return s.str(); }
 template< typename T >
-//inline string id( T x ) { return T2a( (unsigned long) x ); }
-inline string id( T x ) { return T2a( x ); }
+inline string id( T x ) { return T2a( (unsigned long) x ); }
 
 #define cdbg cerr << "\nLn " << __LINE__ << " of " << setw(8) << __FUNCTION__ << " by " << report() 
 
@@ -197,12 +195,11 @@ public:
 class Thread {
   friend class Condition;
   friend class CPUallocator;                      // NOTE: added.
-  //pthread_t pt;                                    // pthread ID.
-  thread pt;                                  // C++14 thread.
+  pthread_t pt;                                    // pthread ID.
   static void* start( Thread* );
   virtual void action() = 0;
   Semaphore go;
-  static ThreadSafeMap<thread::id,Thread*> whoami;  
+  static ThreadSafeMap<pthread_t,Thread*> whoami;  
 
   virtual int priority() { 
     return INT_MAX;      // place holder for complex CPU policies.
@@ -220,13 +217,9 @@ class Thread {
   }
 
   //int self() { return pthread_self(); }
-  thread::id self() { return this_thread::get_id(); }
+  pthread_t self() { return pthread_self(); }
 
-  //void join() { assert( pthread_join( pt, null); ) }
-  void join() { 
-    //assert( pt.joinable() );
-    pt.thread::join();
-  }
+  void join() { assert( pthread_join(pt, NULL) ); }
 
 public:
 
@@ -234,16 +227,13 @@ public:
 
   static Thread* me();
 
-  virtual ~Thread() { 
-    //pthread_cancel(pt);
-  }
+  virtual ~Thread() { pthread_cancel(pt); }  
 
   Thread( string name = "" ) 
     : name(name)
   {
     cerr << "\ncreating thread " << Him(this) << endl;
-    //assert( ! pthread_create(&pt,NULL,(void*(*)(void*))start,this));
-    pt = thread((void*(*)(void*))start,this);
+    assert( ! pthread_create(&pt,NULL,(void*(*)(void*))start,this));
   }
 
 };
@@ -495,11 +485,9 @@ void InterruptSystem::handler(int sig) {                  // static.
 void* Thread::start(Thread* myself) {                     // static.
   interrupts.set(InterruptSystem::alloff);
   cerr << "\nStarting thread " << Him(myself)  // cdbg crashes here.
-       //<< " pt=" << id(pthread_self()) << endl; 
-       << " pt=" << id(this_thread::get_id()) << endl; 
+       << " pt=" << id(pthread_self()) << endl; 
   assert( myself );
-  //whoami[ pthread_self() ] = myself;
-  whoami[ this_thread::get_id() ] = myself;
+  whoami[ pthread_self() ] = myself;
   assert ( Thread::me() == myself );
   interrupts.set(InterruptSystem::on);
   cdbg << "waiting for my first CPU ...\n";
@@ -555,8 +543,7 @@ public:
 
 // Single-instance globals
 
-//ThreadSafeMap<pthread_t,Thread*> Thread::whoami;         // static
-ThreadSafeMap<thread::id,Thread*> Thread::whoami;         // static
+ThreadSafeMap<pthread_t,Thread*> Thread::whoami;         // static
 Idler idler(" Idler ");                        // single instance.
 InterruptCatcher theInterruptCatcher("IntCatcher");  // singleton.
 AlarmClock dispatcher;                         // single instance.
@@ -565,8 +552,7 @@ string Him( Thread* t ) {
   string s = t->name;
   return s == "" ? id(t) : s ; 
 }
-//Thread* Thread::me() { return whoami[pthread_self()]; }  // static
-Thread* Thread::me() { return whoami[this_thread::get_id()]; }  // static
+Thread* Thread::me() { return whoami[pthread_self()]; }  // static
 string Me() { return Him(Thread::me()); }
 
                // NOTE: Thread::start() is defined after class CPU
