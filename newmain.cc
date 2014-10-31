@@ -1,5 +1,4 @@
-//this is a test 
-//this is a test2
+#include <thread>
 #include <pthread.h>
 #include <semaphore.h>
 #include <cassert>
@@ -15,13 +14,15 @@
 #include <climits>
 #include <mutex>
 #include <condition_variable>
+#include <unistd.h>
 
 using namespace std;
 
 template< typename T >
 inline string T2a( T x ) { ostringstream s; s<<x; return s.str(); }
 template< typename T >
-inline string id( T x ) { return T2a( (unsigned long) x ); }
+//inline string id( T x ) { return T2a( (unsigned long) x ); }
+inline string id( T x ) { return T2a( x ); }
 
 #define cdbg cerr << "\nLn " << __LINE__ << " of " << setw(8) << __FUNCTION__ << " by " << report() 
 
@@ -30,6 +31,7 @@ class Thread;
 extern string Him(Thread*);
 extern string Me();
 extern string report( );  
+
 
 // ====================== priority aueue ============================
 
@@ -181,7 +183,6 @@ public:
   }
 };
 
-
 template< typename T1, typename T2 >
 class ThreadSafeMap : Monitor {
   map<T1,T2> m;
@@ -196,15 +197,13 @@ public:
 class Thread {
   friend class Condition;
   friend class CPUallocator;                      // NOTE: added.
-  pthread_t pt;                                    // pthread ID.
+  //pthread_t pt;                                    // pthread ID.
+  thread pt;                                  // C++14 thread.
   static void* start( Thread* );
   virtual void action() = 0;
   Semaphore go;
-  static ThreadSafeMap<pthread_t,Thread*> whoami;  
-
-  virtual int priority() { 
-    return INT_MAX;      // place holder for complex CPU policies.
-  }   
+  static ThreadSafeMap<thread::id,Thread*> whoami;  
+  int pri;
 
   void suspend() { 
     cdbg << "Suspending thread \n";
@@ -217,9 +216,14 @@ class Thread {
     go.release(); 
   }
 
-  int self() { return pthread_self(); }
+  //int self() { return pthread_self(); }
+  thread::id self() { return this_thread::get_id(); }
 
-  void join() { assert( pthread_join(pt, NULL) ); }
+  //void join() { assert( pthread_join( pt, null); ) }
+  void join() { 
+    //assert( pt.joinable() );
+    pt.thread::join();
+  }
 
 public:
 
@@ -227,14 +231,21 @@ public:
 
   static Thread* me();
 
-  virtual ~Thread() { pthread_cancel(pt); }  
+  virtual ~Thread() { 
+    //pthread_cancel(pt);
+  }
 
-  Thread( string name = "" ) 
-    : name(name)
+  Thread( string name = "", int priority = INT_MAX ) 
+    : name(name), pri(priority)
   {
     cerr << "\ncreating thread " << Him(this) << endl;
-    assert( ! pthread_create(&pt,NULL,(void*(*)(void*))start,this));
+    //assert( ! pthread_create(&pt,NULL,(void*(*)(void*))start,this));
+    pt = thread((void*(*)(void*))start,this);
   }
+  
+  virtual int priority() { 
+    return pri;      // place holder for complex CPU policies.
+  }   
 
 };
 
@@ -485,9 +496,11 @@ void InterruptSystem::handler(int sig) {                  // static.
 void* Thread::start(Thread* myself) {                     // static.
   interrupts.set(InterruptSystem::alloff);
   cerr << "\nStarting thread " << Him(myself)  // cdbg crashes here.
-       << " pt=" << id(pthread_self()) << endl; 
+       //<< " pt=" << id(pthread_self()) << endl; 
+       << " pt=" << id(this_thread::get_id()) << endl; 
   assert( myself );
-  whoami[ pthread_self() ] = myself;
+  //whoami[ pthread_self() ] = myself;
+  whoami[ this_thread::get_id() ] = myself;
   assert ( Thread::me() == myself );
   interrupts.set(InterruptSystem::on);
   cdbg << "waiting for my first CPU ...\n";
@@ -496,7 +509,7 @@ void* Thread::start(Thread* myself) {                     // static.
   myself->action();
   cdbg << "exiting and releasing cpu.\n";
   CPU.release();
-  pthread_exit(NULL);   
+  //pthread_exit(NULL);   
 }
 
 
@@ -543,7 +556,8 @@ public:
 
 // Single-instance globals
 
-ThreadSafeMap<pthread_t,Thread*> Thread::whoami;         // static
+//ThreadSafeMap<pthread_t,Thread*> Thread::whoami;         // static
+ThreadSafeMap<thread::id,Thread*> Thread::whoami;         // static
 Idler idler(" Idler ");                        // single instance.
 InterruptCatcher theInterruptCatcher("IntCatcher");  // singleton.
 AlarmClock dispatcher;                         // single instance.
@@ -552,7 +566,8 @@ string Him( Thread* t ) {
   string s = t->name;
   return s == "" ? id(t) : s ; 
 }
-Thread* Thread::me() { return whoami[pthread_self()]; }  // static
+//Thread* Thread::me() { return whoami[pthread_self()]; }  // static
+Thread* Thread::me() { return whoami[this_thread::get_id()]; }  // static
 string Me() { return Him(Thread::me()); }
 
                // NOTE: Thread::start() is defined after class CPU
@@ -598,7 +613,7 @@ public:
 
 
 class Incrementer : Thread {
-  int priority() { return INT_MAX - 1; }            // high priority
+  int priority() { return Thread::priority(); }            // high priority
   void action() { 
     cdbg << "New incrementer running.\n";
     for(int i= 0; i < 120; ++i) {
@@ -609,7 +624,7 @@ class Incrementer : Thread {
     cdbg << Me() << " done\n";
   }
 public:
-  Incrementer( string name ) : Thread(name) {;}
+  Incrementer( string name, int priority ) : Thread(name, priority) {;}
 };
 
 
@@ -618,9 +633,9 @@ public:
 
 // Create and run three concurrent Incrementers for the single 
 // global SharableInteger, counter, as a test case.
-Incrementer t1( "Incrementer#1" );
-Incrementer t2( "Incrementer#2" );
-Incrementer t3( "Incrementer#3" );
+Incrementer t1( "Incrementer#1", INT_MAX-1);
+Incrementer t2( "Incrementer#2", INT_MAX-1);
+Incrementer t3( "Incrementer#3", INT_MAX-1);
 
 int main( int argc, char *argv[] ) {
   // shutting down the main thread
