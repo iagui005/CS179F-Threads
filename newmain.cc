@@ -24,7 +24,9 @@ template< typename T >
 //inline string id( T x ) { return T2a( (unsigned long) x ); }
 inline string id( T x ) { return T2a( x ); }
 
-#define cdbg cerr << "\nLn " << __LINE__ << " of " << setw(8) << __FUNCTION__ << " by " << report() 
+bool CDBG_IS_ON = true;	 // false - Turns off CDBG output ;  true - Turns on CDBG input
+bool PRINT_QUEUE_ON = false;
+#define cdbg if(CDBG_IS_ON) cerr << "\nLn " << __LINE__ << " of " << setw(8) << __FUNCTION__ << " by " << report() 
 
 #define EXCLUSION Sentry exclusion(this); exclusion.touch();
 class Thread;
@@ -452,11 +454,26 @@ public:
     -- cpu_count;         // decrement the CPU pool (i.e., take one).
   }
 
+  void print_ready_queue()
+  {
+	  int i = 1;
+	  pQueue<Thread*> readyCpy = ready;
+	  cerr << "Ready Queue: \n";
+	  Thread* it = NULL;
+	  for(it = readyCpy.front(); !readyCpy.empty(); it = readyCpy.front())
+	  {
+		  readyCpy.pop();
+		  cerr << i <<": \"" << Me() << "\"\n";  
+	  } 
+  }
   void defer( int pr = Thread::me()->priority() ) {
     EXCLUSION
     if ( ready.empty() ) return;
     assert ( cpu_count == 0 );   
     ready.push( Thread::me(), pr );
+ 
+    if(PRINT_QUEUE_ON) print_ready_queue(); // ******************* print the ready queue for debugging purposes
+    
     Thread* t = ready.front();            // now ready is not empty.
     ready.pop();
     if ( t == Thread::me() ) return;
@@ -484,6 +501,7 @@ extern CPUallocator CPU;  // single instance, init declaration here.
 void InterruptSystem::handler(int sig) {                  // static.
   static int tickcount = 0;
   cdbg << "TICK " << tickcount << endl; 
+  
   dispatcher.tick(); 
   if ( ! ( (tickcount++) % 3 ) ) {
     cdbg << "DEFERRING \n"; 
@@ -633,8 +651,8 @@ public:
 
 // Create and run three concurrent Incrementers for the single 
 // global SharableInteger, counter, as a test case.
-Incrementer t1( "Incrementer#1", INT_MAX-1);
-Incrementer t2( "Incrementer#2", INT_MAX-1);
+Incrementer t1( "Incrementer#1", 2);
+Incrementer t2( "Incrementer#2", 3);
 Incrementer t3( "Incrementer#3", INT_MAX-1);
 
 int main( int argc, char *argv[] ) {
