@@ -15,6 +15,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <unistd.h>
+#include <vector> //For thread graveyard
 
 using namespace std;
 
@@ -25,17 +26,19 @@ template< typename T >
 inline string id( T x ) { return T2a( x ); }
 
 bool CDBG_IS_ON = true;	 // false - Turns off CDBG output ;  true - Turns on CDBG input
-bool PRINT_QUEUE_ON = false;
+bool PRINT_QUEUE_ON = false; // false - turns off printing of the ready queue; true - turns on printing of ready queue
 #define cdbg if(CDBG_IS_ON) cerr << "\nLn " << __LINE__ << " of " << setw(8) << __FUNCTION__ << " by " << report() 
 
 #define EXCLUSION Sentry exclusion(this); exclusion.touch();
 class Thread;
+class Condition;
+class CPUallocator;
 extern string Him(Thread*);
 extern string Me();
 extern string report( );  
 
 
-// ====================== priority aueue ============================
+// ====================== priority queue ============================
 
 // pQueue behaves exactly like STL's queue, except that push has an
 // optional integer priority argument that defaults to INT_MAX.
@@ -195,7 +198,6 @@ public:
   }
 };
 
-
 class Thread {
   friend class Condition;
   friend class CPUallocator;                      // NOTE: added.
@@ -205,7 +207,8 @@ class Thread {
   virtual void action() = 0;
   Semaphore go;
   static ThreadSafeMap<thread::id,Thread*> whoami;  
-  int pri;
+  int pri;  //the priority of the thread
+  
 
   void suspend() { 
     cdbg << "Suspending thread \n";
@@ -230,11 +233,12 @@ class Thread {
 public:
 
   string name; 
-
+  extern Condition graveyardCond;	
   static Thread* me();
 
   virtual ~Thread() { 
     //pthread_cancel(pt);
+    //thread_cancel ()
   }
 
   Thread( string name = "", int priority = INT_MAX ) 
@@ -248,6 +252,12 @@ public:
   virtual int priority() { 
     return pri;      // place holder for complex CPU policies.
   }   
+  
+  void thread_cancel()
+  {
+	  CPU.sendToGraveyard();
+	  graveyardCond.wait(pri, true);
+  }
 
 };
 
@@ -258,7 +268,7 @@ public:
   Condition( Monitor* m ) : mon( *m ) {;}
   int waiting() { return size(); }
   bool awaited() { return waiting() > 0; }
-  void wait( int pr = INT_MAX );    // wait() is defined after CPU
+  void wait( int pr = INT_MAX, bool graveyardBound = false );    // wait() is defined after CPU
   void signal() { 
     if ( awaited() ) {
       Thread* t = front();
@@ -417,13 +427,13 @@ public:
 //   void release() { sem.release(); }
 // };
 
-
 // This is my current CPUallocator (thp 10/8/2014)
 class CPUallocator : Monitor {                            
 
   // a prioritized scheduler for the pool of CPUs or anything else.
   friend string report();
   pQueue<Thread*> ready;       // queue of Threads waiting for a CPU.
+  vector<Thread*> graveyard;	//Vector of threads that were cancelled :( Threads here arent in ready queue.
   int cpu_count;           // count of unallocated (i.e., free) CPUs.
 
 public:
@@ -454,24 +464,36 @@ public:
     -- cpu_count;         // decrement the CPU pool (i.e., take one).
   }
 
+	/*
+	 * print_ready_queue()
+	 * Prints out the contents of the ready queue as: '"Name", Priority = '
+	 * One line per object in readyQueue.
+	 * Makes a copy of the readyQueue and pops and prints items until the copy is empty.
+	 */
   void print_ready_queue()
   {
 	  int i = 1;
 	  pQueue<Thread*> readyCpy = ready;
-	  cerr << "Ready Queue: \n";
+	  cerr << "\nReady Queue: Size is " << ready.size() << "\n";
 	  Thread* it = NULL;
 	  for(it = readyCpy.front(); !readyCpy.empty(); it = readyCpy.front())
 	  {
 		  readyCpy.pop();
-		  cerr << i <<": \"" << Me() << "\"\n";  
-	  } 
+      //the name is not showing correctly
+		  cerr << i <<": \"" << it->name/*Me()*/ << "\", Priority = " << it->priority() <<"\n";  
+      i++;
+	  }
+    // just to make sure readyCpy is a shallow copy of ready queue
+    //cerr << "Size of ready_queue is still " << ready.size() << "\n";
   }
-  void defer( int pr = Thread::me()->priority() ) {
+  
+  void defer(int pr = Thread::me()->priority() ) {
     EXCLUSION
     if ( ready.empty() ) return;
     assert ( cpu_count == 0 );   
-    ready.push( Thread::me(), pr );
- 
+   	ready.push( Thread::me(), pr );
+    
+	
     if(PRINT_QUEUE_ON) print_ready_queue(); // ******************* print the ready queue for debugging purposes
     
     Thread* t = ready.front();            // now ready is not empty.
@@ -491,6 +513,11 @@ public:
     }
     assert( cpu_count > 0 );
     --cpu_count;                          // taking a CPU for *me().
+  }
+  
+  void sendToGraveyard()
+  {
+	  graveyard.push_back(me());
   }
 
 };
@@ -531,8 +558,8 @@ void* Thread::start(Thread* myself) {                     // static.
 }
 
 
-void Condition::wait( int pr ) {
-  push( Thread::me(), pr );
+void Condition::wait( int pr, bool graveyardBound ) {
+  if(!graveyardBound) push( Thread::me(), pr );
   cdbg << "releasing CPU just prior to wait.\n";
   mon.unlock();
   CPU.release();  
@@ -651,8 +678,8 @@ public:
 
 // Create and run three concurrent Incrementers for the single 
 // global SharableInteger, counter, as a test case.
-Incrementer t1( "Incrementer#1", 2);
-Incrementer t2( "Incrementer#2", 3);
+Incrementer t1( "Incrementer#1", INT_MAX-1);
+Incrementer t2( "Incrementer#2", INT_MAX-1);
 Incrementer t3( "Incrementer#3", INT_MAX-1);
 
 int main( int argc, char *argv[] ) {

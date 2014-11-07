@@ -15,6 +15,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <unistd.h>
+#include <vector>
 
 using namespace std;
 
@@ -569,6 +570,24 @@ public:
 };
 
 
+class ThreadGraveyard : Monitor {
+	private:
+		Condition deadThread;
+		vector<Thread*> graveyard;
+	public:
+		ThreadGraveyard ()
+		:deadThread(this)
+		{}
+		void thread_cancel()
+		{
+			interrupts.set(InterruptSystem::alloff);
+			graveyard.push_back(Thread::me()); //Push thread into graveyard
+			deadThread.wait();
+			
+		}
+		
+	
+} threadGraveyard;
 
 // ================== threads.cc ===================================
 
@@ -632,7 +651,17 @@ public:
 
 class Incrementer : Thread {
   int priority() { return Thread::priority(); }            // high priority
-  void action() { 
+  void action() {
+	if (priority() == 2)
+	{
+		cdbg << Me() <<" is cancelling itself.\n";
+		threadGraveyard.thread_cancel();
+	} 
+	if (priority() == 3)
+	{
+		cdbg << Me() <<" is cancelling itself.\n";
+		threadGraveyard.thread_cancel();
+	}
     cdbg << "New incrementer running.\n";
     for(int i= 0; i < 120; ++i) {
       for(int i=0;i<12000000;++i) {}  // delay
