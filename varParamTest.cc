@@ -11,10 +11,18 @@ void printSum (int x, int y)
 	cerr << x+y << "\n";
 }
 
-template < typename... Args>
-void testThread (Args&&... args)
+void printXString(string s, int y)
 {
-	thread t1(printSum, args...);
+	for (int i = 0; i < y; ++i)
+	{
+		cout << s <<"\n";
+	}
+	
+}
+template < typename Fn, typename... Args>
+void testThread (Fn fn, Args... args)
+{
+	thread t1(fn, args...);
 	t1.join();
 	
 	/*
@@ -47,6 +55,7 @@ void testThread (Args&&... args)
 int main()
 {
 	int args[2] = {1,1};
-	testThread(1, 1);
+	testThread(printSum,1, 1);
+	testThread(printXString, "Hello World!", 5);
 	return 0;
 }
