@@ -5,16 +5,6 @@ using namespace std;
 class Incrementer : Thread {
   int priority() { return Thread::priority(); }            // high priority
   void action() {
-	if (priority() == 2)
-	{
-		cdbg << Me() <<" is cancelling itself.\n";
-		threadGraveyard.thread_cancel();
-	} 
-	if (priority() == 3)
-	{
-		cdbg << Me() <<" is cancelling itself.\n";
-		threadGraveyard.thread_cancel();
-	}
     cdbg << "New incrementer running.\n";
     for(int i= 0; i < 120; ++i) {
       for(int i=0;i<12000000;++i) {}  // delay
@@ -26,16 +16,27 @@ class Incrementer : Thread {
 public:
   Incrementer( string name, int priority ) : Thread(name, priority) {;}
 };
-
+//current threads pid and ppid
+//thread local storage of own pid and ppid
+class process_thread : Thread {
+  int priority() { return Thread::priority(); }            // high priority
+  void action(vector<string> v) {
+    exec(v);
+    cdbg << Me() << " done\n";
+  }
+public:
+  process_thread( string name, int priority ) : Thread(name, priority) {;}
+};
 
 // ======= control order of construction of initial threads  ========
 
 
 // Create and run three concurrent Incrementers for the single 
 // global SharableInteger, counter, as a test case.
-Incrementer t1( "Incrementer#1", 2);
-Incrementer t2( "Incrementer#2", 3);
-Incrementer t3( "Incrementer#3", INT_MAX-1);
+Incrementer t1( "Incrementer#1", 3);
+Incrementer t2( "Incrementer#2", 2);
+Incrementertwo v1( "Incrementertwo#1", 2);
+Incrementer t3( "Incrementer#3", 1);
 
 int main( int argc, char *argv[] ) {
   // shutting down the main thread

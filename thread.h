@@ -36,7 +36,7 @@ extern string Me();
 extern string report( );  
 
 
-// ====================== priority aueue ============================
+// ====================== priority queue ============================
 
 // pQueue behaves exactly like STL's queue, except that push has an
 // optional integer priority argument that defaults to INT_MAX.
