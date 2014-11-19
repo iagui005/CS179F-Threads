@@ -17,18 +17,6 @@ public:
   Incrementer( string name, int priority ) : Thread(name, priority) {;}
 };
 
-//current threads pid and ppid
-//thread local storage of own pid and ppid
-class process_thread : Thread {
-  int priority() { return Thread::priority(); }            // high priority
-  void action(vector<string> v) {
-    exec(v);
-    cdbg << Me() << " done\n";
-  }
-public:
-  process_thread( string name, int priority ) : Thread(name, priority) {;}
-};
-
 // ======= control order of construction of initial threads  ========
 
 
@@ -36,8 +24,7 @@ public:
 // global SharableInteger, counter, as a test case.
 Incrementer t1( "Incrementer#1", 3);
 Incrementer t2( "Incrementer#2", 2);
-Incrementertwo v1( "Incrementertwo#1", 2);
-Incrementer t3( "Incrementer#3", 1);
+Incrementer t3( "Incrementer#3", 2);
 
 int main( int argc, char *argv[] ) {
   // shutting down the main thread
