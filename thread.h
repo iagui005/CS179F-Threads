@@ -3,7 +3,6 @@
 #include <semaphore.h>
 #include <cassert>
 #include <iostream>
-#include <string>
 #include <sstream>
 #include <map>
 #include <queue>
@@ -16,7 +15,7 @@
 #include <condition_variable>
 #include <unistd.h>
 #include <vector>
-
+#include <string.h>
 using namespace std;
 
 template< typename T >
@@ -25,7 +24,7 @@ template< typename T >
 //inline string id( T x ) { return T2a( (unsigned long) x ); }
 inline string id( T x ) { return T2a( x ); }
 
-bool CDBG_IS_ON = true;	 // false - Turns off CDBG output ;  true - Turns on CDBG input
+bool CDBG_IS_ON = false;	 // false - Turns off CDBG output ;  true - Turns on CDBG input
 bool PRINT_QUEUE_ON = false;
 #define cdbg if(CDBG_IS_ON) cerr << "\nLn " << __LINE__ << " of " << setw(8) << __FUNCTION__ << " by " << report() 
 
@@ -90,7 +89,7 @@ public:       // man sigsetops for details on signal operations.
     time.it_interval.tv_usec = 400000;
     time.it_value.tv_sec     = 0;
     time.it_value.tv_usec    = 400000;
-    cerr << "\nstarting timer\n";
+    //cerr << "\nstarting timer\n";
     setitimer(ITIMER_REAL, &time, NULL);
   }
   sigset_t set( sigset_t mask ) {
@@ -202,6 +201,7 @@ class Thread {
   friend class CPUallocator;                      // NOTE: added.
   //pthread_t pt;                                    // pthread ID.
   thread pt;                                  // C++14 thread.
+  Thread* parent_thread;
   static void* start( Thread* );
   virtual void action() = 0;
   Semaphore go;
@@ -222,16 +222,12 @@ class Thread {
   //int self() { return pthread_self(); }
   thread::id self() { return this_thread::get_id(); }
 
-  //void join() { assert( pthread_join( pt, null); ) }
-  void join() { 
-    //assert( pt.joinable() );
-    pt.thread::join();
-  }
+  
 
 public:
 
   string name; 
-
+  thread::id thread_id;
   static Thread* me();
 
   virtual ~Thread() { 
@@ -239,9 +235,9 @@ public:
   }
 
   Thread( string name = "", int priority = INT_MAX ) 
-    : name(name), pri(priority)
+    : name(name), pri(priority), parent_thread(me())
   {
-    cerr << "\ncreating thread " << Him(this) << endl;
+    //cerr << "\ncreating thread " << Him(this) << endl;
     //assert( ! pthread_create(&pt,NULL,(void*(*)(void*))start,this));
     pt = thread((void*(*)(void*))start,this);
   }
@@ -249,6 +245,16 @@ public:
   virtual int priority() { 
     return pri;      // place holder for complex CPU policies.
   }   
+  
+  //void join() { assert( pthread_join( pt, null); ) }
+  void join() { 
+    //assert( pt.joinable() );
+    pt.thread::join();
+  }
+  thread::id get_thread_id()
+  {
+	  return thread_id;
+  }
 
 };
 
@@ -310,6 +316,7 @@ public:
 extern AlarmClock dispatcher;                  // singleton instance.
 
 
+/*
 class Idler : Thread {                       // awakens periodically.
   // Idlers wake up periodically and then go back to sleep.
   string name;
@@ -329,6 +336,7 @@ public:
   {}
 };
 
+*/
 
 //==================== CPU-related stuff ========================== 
 
@@ -508,15 +516,49 @@ void InterruptSystem::handler(int sig) {                  // static.
     cdbg << "DEFERRING \n"; 
     CPU.defer();                              // timeslice: 3 ticks.
   }
-  assert( tickcount < 35 );
+  //assert( tickcount < 35 );		// Debugging purposes.
 } 
+
+void Condition::wait( int pr ) {
+  push( Thread::me(), pr );
+  cdbg << "releasing CPU just prior to wait.\n";
+  mon.unlock();
+  CPU.release();  
+  cdbg << "WAITING\n";
+  Thread::me()->suspend();
+  CPU.acquire();  
+  mon.lock(); 
+}
+
+class ThreadGraveyard : Monitor {
+	private:
+		Condition deadThread;
+		vector<Thread*> graveyard;
+	public:
+		ThreadGraveyard ()
+		:deadThread(this)
+		{}
+		void thread_cancel()
+		{
+			interrupts.set(InterruptSystem::alloff);
+			graveyard.push_back(Thread::me()); //Push thread into graveyard
+			deadThread.wait();
+			
+		}
+		
+	
+} threadGraveyard;
 
 
 void* Thread::start(Thread* myself) {                     // static.
+	myself->thread_id = this_thread::get_id();
   interrupts.set(InterruptSystem::alloff);
-  cerr << "\nStarting thread " << Him(myself)  // cdbg crashes here.
+  
+  //********************** commenting out the debugging stuff.
+  
+  //cerr << "\nStarting thread " << Him(myself)  // cdbg crashes here.
        //<< " pt=" << id(pthread_self()) << endl; 
-       << " pt=" << id(this_thread::get_id()) << endl; 
+       //<< " pt=" << id(this_thread::get_id()) << endl; 
   assert( myself );
   //whoami[ pthread_self() ] = myself;
   whoami[ this_thread::get_id() ] = myself;
@@ -529,19 +571,12 @@ void* Thread::start(Thread* myself) {                     // static.
   cdbg << "exiting and releasing cpu.\n";
   CPU.release();
   //pthread_exit(NULL);   
+  //threadGraveyard.thread_cancel();
+  exit(0); // exit this thread so that thread_join() can return;
 }
 
 
-void Condition::wait( int pr ) {
-  push( Thread::me(), pr );
-  cdbg << "releasing CPU just prior to wait.\n";
-  mon.unlock();
-  CPU.release();  
-  cdbg << "WAITING\n";
-  Thread::me()->suspend();
-  CPU.acquire();  
-  mon.lock(); 
-}
+
 
 
 // ================ application stuff  ==========================
@@ -570,24 +605,7 @@ public:
 };
 
 
-class ThreadGraveyard : Monitor {
-	private:
-		Condition deadThread;
-		vector<Thread*> graveyard;
-	public:
-		ThreadGraveyard ()
-		:deadThread(this)
-		{}
-		void thread_cancel()
-		{
-			interrupts.set(InterruptSystem::alloff);
-			graveyard.push_back(Thread::me()); //Push thread into graveyard
-			deadThread.wait();
-			
-		}
-		
-	
-} threadGraveyard;
+
 
 // ================== threads.cc ===================================
 
@@ -595,7 +613,7 @@ class ThreadGraveyard : Monitor {
 
 //ThreadSafeMap<pthread_t,Thread*> Thread::whoami;         // static
 ThreadSafeMap<thread::id,Thread*> Thread::whoami;         // static
-Idler idler(" Idler ");                        // single instance.
+//Idler idler(" Idler ");                        // single instance.
 InterruptCatcher theInterruptCatcher("IntCatcher");  // singleton.
 AlarmClock dispatcher;                         // single instance.
 CPUallocator CPU(1);                 // single instance, set here.
@@ -647,4 +665,5 @@ public:
     return T2a(data);
   }  
 } counter;                                        // single instance
+
 
