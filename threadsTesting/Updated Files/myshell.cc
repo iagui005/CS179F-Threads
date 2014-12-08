@@ -111,7 +111,8 @@ class shellThread : public Thread {
                 close( pipe_in );
                 break;                      // exec with the current arglist.
               }
-            } else {           // add this token a C-style argv for execvp().
+            } 
+            else {           // add this token a C-style argv for execvp().
               // Append tok[i].c_str() to arglist
               arglist[argct] = new char[1+tok[i].size()]; 
               strcpy( arglist[argct], tok[i].c_str() );
@@ -131,6 +132,7 @@ class shellThread : public Thread {
 //          execvp( progname.c_str(), arglist );         // execute the command.
 
 		  Inode<App>* junk = static_cast<Inode<App>*>((dynamic_cast<Inode<Directory>*>(root->file->theMap["bin"])->file->theMap)[tok[0]] ); //Update to put apps in a directory
+
 		    if ( ! junk ) {
 			  (dynamic_cast<Inode<Directory>*>(root->file->theMap["bin"])->file->theMap).erase(tok[0]);
 			  cerr << "shell: " << tok[0] << " command not found\n";
@@ -139,6 +141,7 @@ class shellThread : public Thread {
 			App* thisApp = static_cast<App*>(junk->file);
 			if ( thisApp != 0 ) {
 			  thisApp(tok);          // if possible, apply cmd to its args.
+			  return;
 			} else { 
 			  cerr << "Instruction " << tok[0] << " not implemented.\n";
 			}
