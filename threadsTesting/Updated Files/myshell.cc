@@ -65,7 +65,9 @@ class shellThread : public Thread {
     vector<string> tok;
     int priority() {return Thread::priority(); }
     void action (){
-		
+		bool redirection = 0;	// flag to see if we are doing redirection
+		int redirection_index = 0;
+		int saved_stdout = 0;
       // Option processing: (1) redirect I/O as requested and (2) build 
       // a C-style list of arguments, i.e., an array of pointers to
       // C-strings, terminated by an occurrence of the null poiinter.
@@ -87,7 +89,15 @@ class shellThread : public Thread {
             if      ( tok[i] == "&" || tok[i] == ";" ) break;   // arglist done.
             else if ( tok[i] == "<"  ) freopen( tok[++i].c_str(), "r", stdin  );
             else if ( tok[i] == ">"  ) freopen( tok[++i].c_str(), "w", stdout );
-            else if ( tok[i] == ">>" ) freopen( tok[++i].c_str(), "a", stdout );
+            else if ( tok[i] == ">>" ) 
+            {
+			cerr << ">>: Entering\n";
+			redirection = 1;
+			redirection_index = i;
+			saved_stdout = dup(STDOUT_FILENO);
+            freopen( tok[++i].c_str(), "a", stdout );
+            cerr << ">>: Exiting\n";
+			}
             else if ( tok[i] == "2>" ) freopen( tok[++i].c_str(), "w", stderr );
             else if ( tok[i] == "|"  ) {                   // create a pipeline.
               int mypipe[2];  
@@ -140,9 +150,28 @@ class shellThread : public Thread {
 			}
 			App* thisApp = static_cast<App*>(junk->file);
 			if ( thisApp != 0 ) {
-			  thisApp(tok);          // if possible, apply cmd to its args.
-			  return;
-			} else { 
+			  if(redirection)
+			  {
+				  vector<string> newTok;
+				  for (int j = 0; j < redirection_index; ++j)
+				  {
+					  newTok.push_back(tok[j]);
+				  }
+				  thisApp(newTok);
+				  fflush(stdout);
+				  //fclose(stdout);
+				  dup2(saved_stdout, STDOUT_FILENO);
+				  close(saved_stdout);
+				  //stdout = fdopen(STDOUT_FILENO, "w"); 
+				  return;
+			  }
+			  else 
+			  {
+				thisApp(tok);          // if possible, apply cmd to its args
+				return;
+				}
+			} 
+			else { 
 			  cerr << "Instruction " << tok[0] << " not implemented.\n";
 			}
 
